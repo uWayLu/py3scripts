@@ -8,7 +8,10 @@ formatter: [yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yap
 
 ## TODO/Features
 + [x] 從信箱下載帳單附件
-    
+  1. download
+  2. removepw with qpdf
+  3. rename
+  4. verify and classify    
 
 ## Refs
 [Structuring Your Project](https://docs.python-guide.org/writing/structure/)

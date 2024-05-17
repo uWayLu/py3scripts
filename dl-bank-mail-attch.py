@@ -47,7 +47,6 @@ def dl_bank_mail_attch(num):
     # 獲取郵件主旨
     subject = decode_mime_words(email_message['Subject'])
     print(num.decode(), subject)
-    # M.store(num, '-FLAGS', '(\Seen)')
 
     # 是否包含附件
     has_attch = False
@@ -79,12 +78,13 @@ def dl_bank_mail_attch(num):
                         print('  >', 'Downloaded to %s' % filepath)
                 else:
                     print('  >', '%s already exists' % filepath)
-        M.store(num, '-FLAGS', '(\Seen)')
+        M.store(num, '-FLAGS', r'(\Seen)')
+        M.store(num, '+X-GM-LABELS', 'bot-saved')
 
 # TODO 移除附件密碼
 
-# 搜索未讀郵件（未讀郵件的標誌為'UNSEEN'）
-result, data = M.search(None, '(UNSEEN)')
+M.select('bankstmt-paymtslip')
+result, data = M.search(None, r'(UNSEEN)')
 iter = 0
 
 # 遍歷所有未讀郵件

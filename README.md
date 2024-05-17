@@ -16,3 +16,4 @@ formatter: [yapf](https://marketplace.visualstudio.com/items?itemName=eeyore.yap
 ## Refs
 [Structuring Your Project](https://docs.python-guide.org/writing/structure/)
 [VSCode: Python Tutorial](https://code.visualstudio.com/docs/python/python-tutorial)
+[RFC 2060: Flags Message Attribute](https://datatracker.ietf.org/doc/html/rfc2060.html#section-2.3.2)

@@ -1,6 +1,18 @@
 #!/usr/bin/bash
-cd $1
+WORKDIR=$1
+
+cd $WORKDIR
+
+echo $(ls *.* | grep -iv '.pdf')
+read -p "Remove non-PDF files? (y/n) " -n 1 -r
+echo
+
+if [[ $REPLY =~ [[Yy]$ ]]; then
+    ls *.* | grep -iv '.pdf' | xargs rm
+fi
+
 tree -C -L 1 $1 | less
+
 read -p "Rename all downloads file? (y/n) " -n 1 -r
 echo
 
@@ -9,8 +21,8 @@ if [[ ! $REPLY =~ [[Yy]$ ]]; then
     exit 0
 fi
 
-rename '.PDF' '.pdf' *.pdf
 alias perl-rename='perl-rename'
+perl-rename 's/\.PDF$/.pdf/' *.PDF
 
 # 信用卡
 perl-rename 's/\d+-(\S+)銀行.*信用卡.*(\d{4})年(\d+)月.*/sprintf "%d%02d-%s銀行-信用卡帳單.pdf", $2, $3, $1/e' *.pdf

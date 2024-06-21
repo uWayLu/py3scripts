@@ -87,8 +87,8 @@ def dl_bank_mail_attch(num):
                         print("  >", "Downloaded to %s" % filepath)
                 else:
                     print("  >", "%s already exists" % filepath)
-        M.store(num, "-FLAGS", r"(\Seen)")
         M.store(num, "+X-GM-LABELS", "bot-saved")
+    M.store(num, "-FLAGS", r"(\Seen)")    
 
 
 # TODO 移除附件密碼

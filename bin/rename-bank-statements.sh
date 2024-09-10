@@ -18,7 +18,7 @@ tree -C -L 1 $1 | less
 rename_pdfs() {
     alias perl-rename='perl-rename'
     perl-rename 's/\.PDF$/.pdf/' *.PDF
-    perl-rename 's/台北富邦銀行$/富邦銀行/' *.PDF
+    perl-rename 's/台北富邦銀行/富邦銀行/' *.pdf
 
     # 信用卡
     perl-rename 's/\d+-(\S+)銀行.*信用卡.*(\d{4})年(\d+)月.*/sprintf "%d%02d-%s銀行-信用卡帳單.pdf", $2, $3, $1/e' *.pdf

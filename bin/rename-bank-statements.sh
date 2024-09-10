@@ -41,6 +41,8 @@ rename_pdfs() {
     perl-rename 's/\d+-(\S+)銀行.*對帳單.*_(\d{3})(\d{2}).pdf/sprintf "%d%02d-%s銀行-對帳單.pdf", $2+1911, $3, $1/e' *.pdf
     ## 國泰世華, no date
     perl-rename 'our $i; s/\d+-【(\S+)】.*對帳單.pdf/sprintf "%d%02d-%s-對帳單.pdf", 2023, ++$i+12, $1/e' *.pdf
+    ## 202409 富邦已不直接寄信用卡明細
+    perl-rename 's/(\d+)-台北富邦銀行.*信用卡.*/sprintf "%d-台北富邦銀行-對帳單.pdf", $1/e' *.pdf
 }
 
 read -p "Rename all downloads file? (y/n) " -n 1 -r
